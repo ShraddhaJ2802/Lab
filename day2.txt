@@ -1,0 +1,43 @@
+for file in `ls *.txt`;
+do
+echo $file;
+done
+
+2)
+
+for file in `ls *.txt`;
+do fold=` echo $file | awk -F. '{print $1}';
+echo $fold;
+mkdir $fold;
+cp $file $fold;
+done
+
+
+
+3)
+
+for file in `ls *.*`;
+do
+echo $file;
+done
+
+4)
+
+for file in `ls *.txt`;
+do fold=` echo $file | awk -F. '{print $1}';
+echo $fold;
+mkdir $fold;
+done
+
+5)
+for file in `ls *.*`;
+do
+fold=` echo $file | awk -F. '{print $1}'`;
+if [ -d $fold ]
+then
+rm -r $fold;
+fi
+echo $fold;
+mkdir $fold;
+cp $file $fold;
+done
